@@ -60,17 +60,17 @@ if response.status_code == 200:
 
     # เชื่อมต่อ PostgreSQL
     conn = psycopg2.connect(
-        host="172.27.154.25",
-        database="othersource",  # แก้ไขชื่อฐานข้อมูล
-        user="gi.joke",  # แก้ไขชื่อผู้ใช้
-        password="Tawatcha1@2021"  # แก้ไขรหัสผ่าน
+        host="your host",
+        database="your database",  # แก้ไขชื่อฐานข้อมูล
+        user="your user",  # แก้ไขชื่อผู้ใช้
+        password="your password"  # แก้ไขรหัสผ่าน
     )
     cur = conn.cursor()
 
     # แทรกข้อมูลลงใน PostgreSQL
     for station in stations:
         sql = """
-        INSERT INTO tmd.stations (
+        INSERT INTO <your table> (
             title, description, uri, last_build_date, copyright, generator, status,
             station_id, wmo_code, station_name_thai, station_name_english, station_type, 
             province, zip_code, latitude, longitude, geom, height_above_msl, height_of_wind_vane,
