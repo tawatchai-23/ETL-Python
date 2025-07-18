@@ -2,7 +2,6 @@ import requests
 import xml.etree.ElementTree as ET
 import psycopg2
 
-# ฟังก์ชันสำหรับแปลง string เป็น float อย่างปลอดภัย
 def safe_float(value):
     try:
         return float(value.strip())
@@ -33,11 +32,11 @@ if response.status_code == 200:
 
     # เชื่อมต่อ PostgreSQL
     conn = psycopg2.connect(
-        dbname="othersource",    # ใส่ชื่อฐานข้อมูลของคุณ
-        user="gi.joke",          # ใส่ชื่อผู้ใช้
-        password="Tawatcha1@2021",      # ใส่รหัสผ่าน
-        host="172.27.154.25",              # ใส่โฮสต์
-        port="5432"               # ใส่พอร์ต
+        dbname="your dbname",
+        user="your user",
+        password="your password",
+        host="your host",
+        port="your port"
     )
     cur = conn.cursor()
 
@@ -59,7 +58,7 @@ if response.status_code == 200:
 
                 # Insert ข้อมูลลงใน rainregions
                 cur.execute("""
-                    INSERT INTO tmd.rainregions (title, description, uri, last_build_date, date_of_data, copyright, generator, status,
+                    INSERT INTO <your table> (title, description, uri, last_build_date, date_of_data, copyright, generator, status,
                                              region_name, province_name, station_name, latitude, longitude, rainfall)
                     VALUES (%(title)s, %(description)s, %(uri)s, %(last_build_date)s, %(date_of_data)s, %(copyright)s, 
                             %(generator)s, %(status)s, %(region_name)s, %(province_name)s, %(station_name)s, 
