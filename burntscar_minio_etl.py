@@ -13,9 +13,9 @@ load_dotenv()
 
 # -------------------- Config --------------------
 BUCKET_NAME = os.getenv('S3_BUCKET_NAME')
-S3_PREFIX = 'Fire/y2025/50_burnt/Level_01/'
-LOCAL_DIR = './temp_shp/'
-TABLE_NAME = 'disaster.burnt_scar_1day_new'
+S3_PREFIX = 'your bucket name'
+LOCAL_DIR = 'your local dir'
+TABLE_NAME = 'your table'
 
 os.makedirs(LOCAL_DIR, exist_ok=True)
 
